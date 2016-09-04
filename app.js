@@ -16,8 +16,6 @@ Conversion.prototype.convert = function(unit, number) {
 };
 
 var convApp = {
-  log: [],
-
   conversions: [
     new Conversion('inches', 'centimeters', 2.54),
     new Conversion('fluid-ounces', 'milliliters', 29.5735),
@@ -33,13 +31,27 @@ var convApp = {
     }
   },
 
+  clearList: function(event) {
+    var res = document.getElementById('conversions');
+    while(res.firstChild)
+      res.removeChild(res.firstChild);
+  },
+
   submitConversion: function(event) {
     event.preventDefault();
     var toConvert = parseFloat(event.target.fromNum.value);
     var fromUnit = event.target.fromUnit.value;
     var conversion = convApp.getConversion(fromUnit).convert(fromUnit, toConvert);
-    console.log(toConvert + ' ' + fromUnit + ' is ' + conversion.result + ' ' + conversion.unit + '.');
-  }
+    var res = document.getElementById('conversions');
+    var p = document.createElement('p');
+    p.textContent = toConvert + ' ' + fromUnit + ' is ' + conversion.result + ' ' + conversion.unit + '.';
+    res.appendChild(p);
+  },
+
+  round: function(number, dec) {
+    return Math.round(number * dec) / dec;
+  },
 }
 
 document.getElementById('calc-form').addEventListener('submit', convApp.submitConversion);
+document.getElementById('clear-button').addEventListener('click', convApp.clearList);
