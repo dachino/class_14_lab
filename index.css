@@ -20,5 +20,36 @@
 .daily {
   width: 140px;
   height: 155px;
+}
 
+#currentTemp {
+  display: inline-block;
+  width:200px;
+}
+
+#currentInfo {
+  display: inline-block;
+  width:300px;
+  font-size: 12px;
+}
+
+#leftCurrentInfo{
+  display: inline-block;
+  text-align: right;
+  font-weight: bold;
+}
+
+#rightCurrentInfo {
+  display: inline-block;
+  text-align: left;
+}
+
+#moreInfo {
+  display: inline-block;
+  width:200px;
+  font-size: 12px;
+}
+
+#moreInfo > ul > li {
+  list-style: none;
 }
