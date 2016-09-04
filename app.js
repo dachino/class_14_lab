@@ -36,7 +36,8 @@ var convApp {
 
   submitConversion: function(event) {
     var toConvert = parseFloat(event.target.fromNum.value);
-    var fromUnit =
+    var fromUnit = event.target.fromUnit.value;
+    console.log(toConvert + ' ' + fromUnit + ' is ' + getConversion(fromUnit).convert(toConvert) + ' whatevers.');
   }
 }
 
