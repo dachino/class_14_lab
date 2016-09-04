@@ -1,4 +1,6 @@
 var convApp {
+  log: [],
+
   unit: {
     INCHES: 0,
     CENTIMETERS: 1,
@@ -20,11 +22,22 @@ var convApp {
     new Conversion(SHIT_TON, METRIC_SHIT_TON, 24)
   ],
 
-  Conversion: function(fromUnit, toUnit, ratio) {
+  Conversion: function(fromUnit, ratio) {
     this.fromUnit = fromUnit;
-    this.toUnit = toUnit;
     this.ratio = ratio;
   },
+
+  getConversion: function(fromUnit) {
+    for(conversion in this.conversions) {
+      if (conversion.fromUnit === fromUnit || conversion.toUnit === fromUnit)
+        return conversion;
+    }
+  },
+
+  submitConversion: function(event) {
+    var toConvert = parseFloat(event.target.fromNum.value);
+    var fromUnit =
+  }
 }
 
 convApp.Conversion.prototype.convert(unit, number) {
