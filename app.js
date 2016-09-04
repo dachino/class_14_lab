@@ -2,16 +2,16 @@ var convApp {
   log: [],
 
   unit: {
-    INCHES: 0,
-    CENTIMETERS: 1,
-    FLUID_OZ: 2,
-    MILLILITERS: 3,
-    MILES: 4,
-    KILOMETERS: 5,
-    POUNDS: 6,
-    KILOGRAMS: 7,
-    SHIT_TON: 8,
-    METRIC_SHIT_TON: 9
+    'inches',
+    'centimeters',
+    'fluid-ounces',
+    'milliliters',
+    'miles',
+    'kilometers',
+    'pounds',
+    'kilograms',
+    'shit-tons',
+    'metric-shit-tons'
   },
 
   conversions: [
