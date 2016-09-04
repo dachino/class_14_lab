@@ -1,13 +1,14 @@
-function Conversion(fromUnit, ratio) {
+function Conversion(fromUnit, toUnit, ratio) {
   this.fromUnit = fromUnit;
+  this.toUnit = toUnit;
   this.ratio = ratio;
 }
 
 Conversion.prototype.convert = function(unit, number) {
-  if (unit === toUnit) {
-    return { result: number * ratio, unit: fromUnit };
-  } else if (unit === fromUnit) {
-    return { result: number / ratio, unit: toUnit };
+  if (unit === this.fromUnit) {
+    return { result: number * this.ratio, unit: this.toUnit };
+  } else if (unit === this.toUnit) {
+    return { result: number / this.ratio, unit: this.fromUnit };
   } else {
     console.log('Invalid conversion.');
     return -1;
@@ -26,9 +27,9 @@ var convApp = {
   ],
 
   getConversion: function(fromUnit) {
-    for(conversion in this.conversions) {
-      if (conversion.fromUnit == fromUnit || conversion.toUnit == fromUnit)
-        return conversion;
+    for(i in this.conversions) {
+      if (this.conversions[i].fromUnit == fromUnit || this.conversions[i].toUnit == fromUnit)
+        return this.conversions[i];
     }
   },
 
@@ -36,9 +37,8 @@ var convApp = {
     event.preventDefault();
     var toConvert = parseFloat(event.target.fromNum.value);
     var fromUnit = event.target.fromUnit.value;
-    console.log('submitted:', toConvert, fromUnit);
-    var conversion = convApp.getConversion(fromUnit).convert(toConvert);
-    console.log(toConvert + ' ' + fromUnit + ' is ' + conversion.result + ' ' + conversion.unit);
+    var conversion = convApp.getConversion(fromUnit).convert(fromUnit, toConvert);
+    console.log(toConvert + ' ' + fromUnit + ' is ' + conversion.result + ' ' + conversion.unit + '.');
   }
 }
 
