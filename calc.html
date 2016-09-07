@@ -10,6 +10,25 @@
     <h1>Market Analysis Survey</h1>
   </header>
   <main>
+    <form id="calc-form">
+      <input type="number" name="fromNum" step="any" value="">
+      <select name="fromUnit">
+        <option value="inches">Inches</option>
+        <option value="centimeters">Centimeters</option>
+        <option value="fluid-ounces">Fluid Ounces</option>
+        <option value="milliliters">Milliliters</option>
+        <option value="miles">Miles</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="pounds">Pounds</option>
+        <option value="kilograms">Kilograms</option>
+        <option value="shit-tons">Shit tons</option>
+        <option value="metric-shit-tons">Metric shit tons</option>
+      </select>
+      <button type="submit" name="thebutton">Submit</button>
+    </form>
+    <button type="click" id="clear-button">Clear List</button>
+    <section id="conversions">
+    </section>
   </main>
 <script type="text/javascript" src="app.js"></script>
 </body>
